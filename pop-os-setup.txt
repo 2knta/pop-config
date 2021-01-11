@@ -1,0 +1,66 @@
+# hide pop os error when shutdown(cosmetic one)
+sudo kernelstub -a "console=ttyS0"
+
+#disable title bars
+gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
+
+#extensions
+CPU Power Manager
+Dash to Dock
+Dynamic Panel Transparency
+Hide Activities button
+No workspace Switcher Popup
+Remove Accesibility
+User Themes
+Workspace indicator
+
+#gnome-themes
+Snow-alien
+Kripton
+Nordic
+
+#Brave
+sudo apt install apt-transport-https curl gnupg
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+
+# zsh / oh my zsh
+sudo apt-get install -y  zsh git-core
+
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+chsh -s `which zsh`
+ REINICIAR PC
+
+# p10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+zsh(primera vez) o p10k configure(volver a configurar)
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+# papirus icon theme
+sudo add-apt-repository ppa:papirus/papirus
+
+sudo apt update
+
+sudo apt install papirus-icon-theme
+
+## zsh-plugins
+# lsd
+link -> https://github.com/Peltoche/lsd
+descargar -> lsd-musl_0.19.0_amd64.deb
+alias -> alias ls='lsd --group-dirs=first'
+# bat
+link -> https://github.com/sharkdp/bat
+descargar -> bat_0.17.1_amd64.deb
+alias -> alias cat='bat'
